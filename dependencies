@@ -1,0 +1,7 @@
+flask = "*"
+flask-migrate = "*"
+sqlalchemy-serializer = "*"
+flask-sqlalchemy = "*"
+flask-restful = "*"
+faker = "*"
+flask-bcrypt
