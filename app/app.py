@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 from flask import make_response, jsonify, session, request
-from setup import app, Resource,db,api
+from setup import app, Resource, db, api
 from flask_bcrypt import Bcrypt
 from models import Hero, HeroPower, Power
 

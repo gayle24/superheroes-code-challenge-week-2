@@ -3,6 +3,7 @@ from flask_bcrypt import Bcrypt
 from flask import Flask
 from flask_migrate import Migrate
 from flask_restful import Api, Resource
+from sqlalchemy.orm import validates
 
 app = Flask(__name__)
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///hero_powers.db'
