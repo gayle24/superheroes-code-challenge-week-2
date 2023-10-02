@@ -1,6 +1,7 @@
 from sqlalchemy_serializer import SerializerMixin
 from sqlalchemy.ext.hybrid import hybrid_property
-from setup import bcrypt,db, validates
+from sqlalchemy.orm import validates
+from setup import bcrypt,db
 
 
 class Hero(db.Model, SerializerMixin):
@@ -15,7 +16,7 @@ class Hero(db.Model, SerializerMixin):
     updated_at = db.Column(db.DateTime, onupdate=db.func.now())
 
     powers = db.relationship('Power', secondary='hero_powers', back_populates='heroes')
-    serialize_rules = ('-powers.heroes')
+    serialize_rules = ('-powers.heroes',)
 
 
 # add any models you may need. 
@@ -36,7 +37,7 @@ class Power(db.Model, SerializerMixin):
             raise ValueError("Description must be at least 20 characters long")
         return desc
     
-    serialize_rules = ('-heroes.powers')
+    serialize_rules = ('-heroes.powers',)
 
 class HeroPower(db.Model, SerializerMixin):
     __tablename__ = 'hero_powers'
