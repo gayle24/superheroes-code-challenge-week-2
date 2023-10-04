@@ -11,7 +11,7 @@ function HeroPowerForm() {
   const history = useHistory();
 
   useEffect(() => {
-    fetch("/heroes")
+    fetch("/api/heroes")
       .then((r) => r.json())
       .then(setHeroes);
   }, []);
